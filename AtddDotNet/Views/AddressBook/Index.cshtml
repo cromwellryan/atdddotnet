@@ -1,7 +1,53 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div id="newperson">
-    <input id="name" /></div>
-<div id="people">
-    <a id="johndoe" class="recentlyadded">John Doe</a></div>
+<style type="text/css">
+    #newperson
+    {
+        margin-bottom: 10px;
+    }
+    #people
+    {
+        list-style-type: none;
+        margin-left: -40px;
+        margin-top: 40px;
+    }
+    .container
+    {
+        width: 800px;
+        margin: auto;
+    }
+</style>
+<script language="javascript" type="text/javascript">
+    $(function () {
+        var nameel = $('#newperson #name');
+
+        $("#newperson form").submit(function (event) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            var name = nameel.val();
+            $.post('/people', { name: name },
+                function (data) {
+                    var anchor = data.Name.replace(' ', '').toLowerCase();
+                    $('#people').append('<li><a id=\'' + anchor + '\'>' + data.Name + '</a></li>');
+                }
+            );
+
+            return false;
+        });
+
+        nameel.focus();
+    });
+</script>
+<div class="container">
+    <div id="newperson">
+        <form>
+        <input id="name" />
+        <button>
+            Add</button>
+        </form>
+    </div>
+    <ul id="people">
+    </ul>
+</div>

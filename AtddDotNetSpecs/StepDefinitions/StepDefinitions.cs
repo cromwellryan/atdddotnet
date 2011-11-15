@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Should.Fluent;
 using TechTalk.SpecFlow;
@@ -13,7 +8,20 @@ namespace AtddDotNetSpecs.StepDefinitions
     [Binding]
     public class StepDefinitions
     {
-        private FirefoxDriver driver = new FirefoxDriver();
+        private FirefoxDriver driver;
+
+        [BeforeScenario()]
+        public void OpenBrowser()
+        {
+            driver = new FirefoxDriver();
+        }
+
+        [AfterScenario]
+        public void CloseBrowser()
+        {
+            driver.Close();
+            driver.Dispose();
+        }
 
         [Given(@"I am in the address book")]
         public void GivenIAmInTheAddressBook()
@@ -38,13 +46,13 @@ namespace AtddDotNetSpecs.StepDefinitions
         {
             driver.FindElementByCssSelector("#people a#johndoe").Should().Not.Be.Null();
         }
-    
+
         [Then(@"John Doe should highlighted")]
         public void ThenJohnDoeShouldHighlighted()
         {
-            driver.FindElementByCssSelector("#people a#johndoe").GetAttribute("class").Should().Contain("recentlyadded");
+            driver.FindElementByCssSelector("a#johndoe").GetAttribute("class").Should().Contain("recentlyadded");
         }
-    
+
     }
 
 }
