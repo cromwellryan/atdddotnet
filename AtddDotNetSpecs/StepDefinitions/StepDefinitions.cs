@@ -52,7 +52,11 @@ namespace AtddDotNetSpecs.StepDefinitions
         {
             driver.FindElementByCssSelector("a#johndoe").GetAttribute("class").Should().Contain("recentlyadded");
         }
-
+        [Then(@"Title should be cleared")]
+        public void ThenTitleShouldBeCleared()
+        {
+            driver.FindElementByCssSelector("#newperson #name").Text.Should().Be.Empty();
+        }
     }
 
 }

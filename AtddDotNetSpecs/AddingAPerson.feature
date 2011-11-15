@@ -10,4 +10,5 @@ Scenario: Quick Add without Phone Number
 	And I press return
 	Then John Doe should be added to the address book
 	And John Doe should highlighted
+	And Title should be cleared
 

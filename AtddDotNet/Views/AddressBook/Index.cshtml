@@ -32,7 +32,8 @@
             $.post('/people', { name: name },
                 function (data) {
                     var anchor = data.Name.replace(' ', '').toLowerCase();
-                    $('#people').append('<li><a id=\'' + anchor + '\'>' + data.Name + '</a></li>');
+                    $('#people').append('<li><a id=\'' + anchor + '\' class=\'recentlyadded\'>' + data.Name + '</a></li>');
+                    nameel.val('');
                 }
             );
         });
