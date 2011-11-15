@@ -23,7 +23,6 @@
         var nameel = $('#newperson #name');
 
         $("#newperson form").submit(function (event) {
-            event.stopPropagation();
             event.preventDefault();
 
             var name = nameel.val();
@@ -33,8 +32,6 @@
                     $('#people').append('<li><a id=\'' + anchor + '\'>' + data.Name + '</a></li>');
                 }
             );
-
-            return false;
         });
 
         nameel.focus();
