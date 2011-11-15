@@ -5,6 +5,8 @@
     #newperson
     {
         margin-bottom: 10px;
+        border-bottom: 2px solid #0058B0;
+        padding-bottom: 5px; 
     }
     #people
     {
@@ -12,11 +14,12 @@
         margin-left: -40px;
         margin-top: 40px;
     }
-    .container
+    .quickaction
     {
         width: 800px;
         margin: auto;
     }
+    .quickaction label { color: Gray; }
 </style>
 <script language="javascript" type="text/javascript">
     $(function () {
@@ -37,9 +40,10 @@
         nameel.focus();
     });
 </script>
-<div class="container">
+<div class="quickaction">
     <div id="newperson">
         <form>
+        <label>Quick </label>
         <input id="name" />
         <button>
             Add</button>
