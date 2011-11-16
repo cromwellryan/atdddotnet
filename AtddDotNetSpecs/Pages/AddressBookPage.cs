@@ -39,12 +39,17 @@ namespace AtddDotNetSpecs.Pages
 
         public void ContainsPersonNamed(string name)
         {
-            cssSelector.FindElementByCssSelector("#people a#" + NameAsAnchorId(name)).Should().Not.Be.Null();
+            FindPersonAnchorInAddressList(name).Should().Not.Be.Null();
         }
 
         public void IsPersonHighlighted(string name)
         {
-            cssSelector.FindElementByCssSelector("#people a#" + NameAsAnchorId(name)).GetAttribute("class").Should().Contain("recentlyadded");
+            FindPersonAnchorInAddressList(name).GetAttribute("class").Should().Contain("recentlyadded");
+        }
+
+        private IWebElement FindPersonAnchorInAddressList(string name)
+        {
+            return cssSelector.FindElementByCssSelector("#people a#" + NameAsAnchorId(name));
         }
 
         private static string NameAsAnchorId(string name)
