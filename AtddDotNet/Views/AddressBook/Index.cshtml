@@ -6,7 +6,7 @@
     {
         margin-bottom: 10px;
         border-bottom: 2px solid #0058B0;
-        padding-bottom: 5px; 
+        padding-bottom: 5px;
     }
     #people
     {
@@ -19,9 +19,15 @@
         width: 800px;
         margin: auto;
     }
-    .quickaction label { color: Gray; }
-
-    .recentlyadded { border-bottom: 2px solid gold; }
+    .quickaction label
+    {
+        color: Gray;
+    }
+    
+    .recentlyadded
+    {
+        border-bottom: 2px solid gold;
+    }
 </style>
 <script language="javascript" type="text/javascript">
     $(function () {
@@ -46,13 +52,17 @@
 <div class="quickaction">
     <div id="newperson">
         <form>
-        <label>Quick </label>
+        <label>
+            Quick
+        </label>
         <input id="name" />
         <button>
             Add</button>
         </form>
     </div>
-    <ul id="people">
+</div>
+<div id="people">
+    <ul>
         <li id="ryancromwell">Ryan Cromwell</li>
         <li id="stevetrace">Steve Trace</li>
         <li id="lalitha">Lalitha</li>

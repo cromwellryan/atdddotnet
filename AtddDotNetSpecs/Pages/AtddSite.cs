@@ -9,7 +9,7 @@ namespace AtddDotNetSpecs.Pages
         {
             var addressBookPage = new AddressBookPage(DriverFactory.Driver, DriverFactory.CssSelector, DriverFactory.InputDevices);
 
-            addressBookPage.Show();
+            addressBookPage.Show("http://localhost:21985");
            
             return addressBookPage;
         }

@@ -22,18 +22,15 @@ namespace AtddDotNetSpecs.Pages
             get { return cssSelector.FindElementByCssSelector("#newperson #name").Text; }
         }
 
-        public void Show()
+        public void Show(string hostUrl)
         {
-            driver.Navigate().GoToUrl("http://localhost:21985/addressbook/");
+            driver.Navigate().GoToUrl(hostUrl + "/addressbook");
         }
 
         public void QuickAdd(string name)
         {
             cssSelector.FindElementByCssSelector("#newperson #name").SendKeys(name);
-        }
-
-        public void PressEnter()
-        {
+            
             inputDevices.Keyboard.PressKey(Keys.Enter);
         }
 
@@ -49,7 +46,9 @@ namespace AtddDotNetSpecs.Pages
 
         private IWebElement FindPersonAnchorInAddressList(string name)
         {
-            return cssSelector.FindElementByCssSelector("#people a#" + NameAsAnchorId(name));
+            var listOfPeople = cssSelector.FindElementByCssSelector("#people");
+
+            return listOfPeople.FindElement(By.CssSelector("a#" + NameAsAnchorId(name)));
         }
 
         private static string NameAsAnchorId(string name)
