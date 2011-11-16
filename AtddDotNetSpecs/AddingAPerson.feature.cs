@@ -75,15 +75,13 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("I am in the address book");
 #line 9
- testRunner.When("I enter the name John Doe");
+ testRunner.When("I quick add John Doe");
 #line 10
- testRunner.And("I press return");
-#line 11
  testRunner.Then("John Doe should be added to the address book");
-#line 12
+#line 11
  testRunner.And("John Doe should highlighted");
-#line 13
- testRunner.And("Title should be cleared");
+#line 12
+ testRunner.And("Quick add name should be cleared");
 #line hidden
             this.ScenarioCleanup();
         }

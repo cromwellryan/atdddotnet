@@ -6,9 +6,8 @@
 
 Scenario: Quick Add without Phone Number
 	Given I am in the address book
-	When I enter the name John Doe
-	And I press return
+	When I quick add John Doe
 	Then John Doe should be added to the address book
 	And John Doe should highlighted
-	And Title should be cleared
+	And Quick add name should be cleared
 
